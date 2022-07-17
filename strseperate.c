@@ -6,18 +6,19 @@
  * Return: the opcode or null
  */
 
-char  *strseperate(char **arr, char *str)
+char  *strseperate(char **arr, char **str)
 {
 	int i = 0;
+	char *sstr = *str;
 
-	str = strtok(str, " ");
-	if (str == NULL)
+	sstr = strtok(*str, " -;+");
+	if (sstr == NULL)
 		return (NULL);
-	while (str != NULL)
+	while (sstr != NULL)
 	{
 		if (i < 2)
-			arr[i] = str;
-		str = strtok(NULL, " ");
+			arr[i] = sstr;
+		sstr = strtok(NULL, " -;+");
 		i++;
 	}
 	return ("good");

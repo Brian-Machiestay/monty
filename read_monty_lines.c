@@ -6,7 +6,7 @@
  * @stream: monty file descriptor
  * @stack: the stack
  */
-void read_monty_lines(FILE *stream, stack_t *stack)
+void read_monty_lines(FILE *stream, stack_t **stack)
 {
 	int line_counter = 1;
 	size_t n = 0;
@@ -19,11 +19,10 @@ void read_monty_lines(FILE *stream, stack_t *stack)
 		*(opcode + (line - 1)) = '\0';
 		if (*opcode == '\0')
 			continue;
-		sep_ret = execute_opcode(&stack, opcode, line_counter);
+		sep_ret = execute_opcode(stack, &opcode, line_counter);
 		if (sep_ret == NULL)
 			continue;
 		line_counter++;
 	}
-	if (opcode != NULL || sep_ret != NULL)
-		free(opcode);
+	free(opcode);
 }

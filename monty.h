@@ -46,9 +46,9 @@ void push(stack_t **stack, char *value, int line_number);
 size_t pall(stack_t *h);
 void checkerror(int);
 void free_stackt(stack_t *head);
-void read_monty_lines(FILE *stream, stack_t *stack);
-char *execute_opcode(stack_t **stack, char *opcode, int line);
+void read_monty_lines(FILE *stream, stack_t **stack);
+char *execute_opcode(stack_t **stack, char **opcode, int line);
 int openMonty(char *);
 void arrayinit(char **s, int size);
-char *strseperate(char **arr, char *str);
+char *strseperate(char **arr, char **str);
 #endif /* MONTY_H */

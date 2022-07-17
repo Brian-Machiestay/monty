@@ -7,7 +7,7 @@
  * @line: the line no.
  * Return: the opcode or null
  */
-char *execute_opcode(stack_t **stack, char *opcode, int line)
+char *execute_opcode(stack_t **stack, char **opcode, int line)
 {
 	char *newprog[2];
 	char *sep_ret;
@@ -24,8 +24,8 @@ char *execute_opcode(stack_t **stack, char *opcode, int line)
 		pall(*stack);
 	else
 	{
-		fprintf(stderr, "%d: unknown instruction %s\n", line, opcode);
+		fprintf(stderr, "%d: unknown instruction %s\n", line, *opcode);
 		exit(EXIT_FAILURE);
 	}
-	return (opcode);
+	return (*opcode);
 }
