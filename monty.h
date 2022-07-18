@@ -42,13 +42,15 @@ typedef struct instruction_s
 
 /* function prototypes */
 void free_stackt(stack_t *head);
-void push(stack_t **stack, char *value, int line_number);
+void push(stack_t **stack, char *value, char *opcode, int line_number, FILE *);
 size_t pall(stack_t *h);
 void checkerror(int);
 void free_stackt(stack_t *head);
-void read_monty_lines(FILE *stream, stack_t **stack);
-char *execute_opcode(stack_t **stack, char **opcode, int line);
-int openMonty(char *);
+void read_monty_lines(FILE *str, stack_t **);
+char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *);
+FILE *openMonty(char *);
+void free_stack_opcode(stack_t **stack, char *opcode, int line, FILE *);
 void arrayinit(char **s, int size);
+void unknown_inst_exit(stack_t **stack, char *opcode, int line, FILE *);
 char *strseperate(char **arr, char **str);
 #endif /* MONTY_H */

@@ -6,26 +6,25 @@
  * @line: the current line
  * @strval: the value to push
  */
-void push(stack_t **head, char *strval, int line)
+void push(stack_t **head, char *strval, char *opcode, int line, FILE *str)
 {
 	stack_t *newNode;
 	int n;
 
 	if (strval == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line);
-		exit(EXIT_FAILURE);
+		free_stack_opcode(head, opcode, line, str);
 	}
 	n = atoi(strval);
 	if ((strcmp(strval, "0") != 0) && n == 0)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line);
-		exit(EXIT_FAILURE);
-	}
+		free_stack_opcode(head, opcode, line, str);
 	newNode = malloc(sizeof(stack_t));
 	if (newNode == NULL)
 	{
+		free_stackt(*head);
+		free(opcode);
 		fprintf(stderr, "Error: malloc failed\n");
+		fclose(str);
 		exit(EXIT_FAILURE);
 	}
 

@@ -7,7 +7,7 @@
  * @line: the line no.
  * Return: the opcode or null
  */
-char *execute_opcode(stack_t **stack, char **opcode, int line)
+char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 {
 	char *newprog[2];
 	char *sep_ret;
@@ -15,17 +15,12 @@ char *execute_opcode(stack_t **stack, char **opcode, int line)
 	arrayinit(newprog, 2);
 	sep_ret = strseperate(newprog, opcode);
 	if (sep_ret == NULL)
-	{
 		return (NULL);
-	}
 	if (strcmp(newprog[0], "push") == 0)
-		push(stack, newprog[1], line);
+		push(stack, newprog[1], *opcode, line, stream);
 	else if (strcmp(newprog[0], "pall") == 0)
 		pall(*stack);
 	else
-	{
-		fprintf(stderr, "%d: unknown instruction %s\n", line, *opcode);
-		exit(EXIT_FAILURE);
-	}
+		unknown_inst_exit(stack, *opcode, line, stream);
 	return (*opcode);
 }

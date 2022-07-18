@@ -5,18 +5,15 @@
  * @file: the file to open
  * Return: the descriptor for file
  */
-int openMonty(char *file)
+FILE *openMonty(char *file)
 {
-	int monty_des = 0;
-	char *errmsg = "Error: Can't open file ";
+	FILE *stream;
 
-	monty_des = open(file, O_RDONLY);
-	if (monty_des == -1)
+	stream = fopen(file, "r");
+	if (stream == NULL)
 	{
-		write(2, errmsg, strlen(errmsg));
-		write(2, file, strlen(file));
-		write(2, "\n", 1);
+		fprintf(stderr, "Error: Can't open file %s\n", file);
 		exit(EXIT_FAILURE);
 	}
-	return (monty_des);
+	return (stream);
 }

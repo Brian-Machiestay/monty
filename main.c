@@ -8,15 +8,13 @@
  */
 int main(int ac, char **av)
 {
-	int monty_des;
 	FILE *stream = NULL;
 	stack_t *stack = NULL;
 
 	checkerror(ac);
-	monty_des = openMonty(av[1]);
-	stream = fdopen(monty_des, "r");
+	stream = openMonty(av[1]);
 	read_monty_lines(stream, &stack);
-	close(monty_des);
+	fclose(stream);
 	free_stackt(stack);
 	return (0);
 }

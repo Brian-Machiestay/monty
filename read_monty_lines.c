@@ -18,11 +18,14 @@ void read_monty_lines(FILE *stream, stack_t **stack)
 	{
 		*(opcode + (line - 1)) = '\0';
 		if (*opcode == '\0')
+		{
+			line_counter++;
 			continue;
-		sep_ret = execute_opcode(stack, &opcode, line_counter);
+		}
+		sep_ret = execute_opcode(stack, &opcode, line_counter, stream);
+		line_counter++;
 		if (sep_ret == NULL)
 			continue;
-		line_counter++;
 	}
 	free(opcode);
 }
