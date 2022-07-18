@@ -5,6 +5,7 @@
  * @stack: the stack
  * @opcode: the opcode
  * @line: the line no.
+ * @stream: the monty file stream
  * Return: the opcode or null
  */
 char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)

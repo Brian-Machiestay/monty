@@ -49,6 +49,7 @@ void free_stackt(stack_t *head);
 void read_monty_lines(FILE *str, stack_t **);
 char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *);
 FILE *openMonty(char *);
+void testvalue(stack_t **stack, char *val, char *op, int line, FILE *str);
 void free_stack_opcode(stack_t **stack, char *opcode, int line, FILE *);
 void arrayinit(char **s, int size);
 void unknown_inst_exit(stack_t **stack, char *opcode, int line, FILE *);

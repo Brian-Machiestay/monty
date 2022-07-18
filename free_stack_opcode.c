@@ -3,7 +3,9 @@
 /**
  * free_stack_opcode - check the code
  * @stack: the stack
- * @opcode: th opcode
+ * @opcode: the opcode
+ * @line: the line number
+ * @str: the monty file stream
  */
 void free_stack_opcode(stack_t **stack, char *opcode, int line, FILE *str)
 {

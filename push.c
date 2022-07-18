@@ -5,6 +5,8 @@
  * @head: the stack
  * @line: the current line
  * @strval: the value to push
+ * @opcode: the opcode
+ * @str: the monty file stream
  */
 void push(stack_t **head, char *strval, char *opcode, int line, FILE *str)
 {
@@ -15,6 +17,7 @@ void push(stack_t **head, char *strval, char *opcode, int line, FILE *str)
 	{
 		free_stack_opcode(head, opcode, line, str);
 	}
+	testvalue(head, strval, opcode, line, str);
 	n = atoi(strval);
 	if ((strcmp(strval, "0") != 0) && n == 0)
 		free_stack_opcode(head, opcode, line, str);
