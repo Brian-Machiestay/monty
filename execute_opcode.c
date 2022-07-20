@@ -25,6 +25,8 @@ char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 		pint(*stack, *opcode, line, stream);
 	else if (strcmp(newprog[0], "pop") == 0)
 		pop(stack, *opcode, line, stream);
+	else if (strcmp(newprog[0], "swap") == 0)
+		swap(stack, *opcode, line, stream);
 	else
 		unknown_inst_exit(stack, *opcode, line, stream);
 	return (*opcode);
