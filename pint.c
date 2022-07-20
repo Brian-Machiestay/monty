@@ -14,7 +14,7 @@ void pint(stack_t *stack, char *opcode, int line, FILE *stream)
 		free_stackt(stack);
 		free(opcode);
 		fclose(stream);
-		fprintf(stderr, "L<%d>: can't pint, stack empty\n", line);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", stack->n);
