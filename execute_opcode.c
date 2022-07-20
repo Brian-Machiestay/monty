@@ -21,6 +21,8 @@ char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 		push(stack, newprog[1], *opcode, line, stream);
 	else if (strcmp(newprog[0], "pall") == 0)
 		pall(*stack);
+	else if (strcmp(newprog[0], "pint") == 0)
+		pint(*stack, *opcode, line, stream);
 	else
 		unknown_inst_exit(stack, *opcode, line, stream);
 	return (*opcode);

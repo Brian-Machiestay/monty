@@ -47,6 +47,7 @@ size_t pall(stack_t *h);
 void checkerror(int);
 void free_stackt(stack_t *head);
 void read_monty_lines(FILE *str, stack_t **);
+void pint(stack_t *stack, char *opcode, int line, FILE *stream);
 char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *);
 FILE *openMonty(char *);
 void testvalue(stack_t **stack, char *val, char *op, int line, FILE *str);
