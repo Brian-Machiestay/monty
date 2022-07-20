@@ -23,6 +23,8 @@ char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 		pall(*stack);
 	else if (strcmp(newprog[0], "pint") == 0)
 		pint(*stack, *opcode, line, stream);
+	else if (strcmp(newprog[0], "pop") == 0)
+		pop(stack, *opcode, line, stream);
 	else
 		unknown_inst_exit(stack, *opcode, line, stream);
 	return (*opcode);
