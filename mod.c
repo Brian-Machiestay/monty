@@ -22,6 +22,14 @@ void modulo(stack_t **stack, char *opcode, int line, FILE *stream)
 		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
+	if ((*stack)->n == 0)
+	{
+		free(opcode);
+		free_stackt(*stack);
+		fclose(stream);
+		fprintf(stderr, "L%d: division by zero\n", line);
+		exit(EXIT_FAILURE);
+	}
 	n1 = pop(stack, opcode, line, stream);
 	n2 = pop(stack, opcode, line, stream);
 	result = n2 % n1;
