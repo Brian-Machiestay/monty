@@ -27,6 +27,8 @@ char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 		pop(stack, *opcode, line, stream);
 	else if (strcmp(newprog[0], "swap") == 0)
 		swap(stack, *opcode, line, stream);
+	else if (strcmp(newprog[0], "nop") == 0)
+		return ("good");
 	else if (strcmp(newprog[0], "add") == 0)
 		add(stack, *opcode, line, stream);
 	else
