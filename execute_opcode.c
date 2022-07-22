@@ -31,6 +31,8 @@ char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 		return ("good");
 	else if (strcmp(newprog[0], "add") == 0)
 		add(stack, *opcode, line, stream);
+	else if (strcmp(newprog[0], "sub") == 0)
+		sub(stack, *opcode, line, stream);
 	else
 		unknown_inst_exit(stack, *opcode, line, stream);
 	return (*opcode);

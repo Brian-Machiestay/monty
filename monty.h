@@ -51,6 +51,7 @@ void pint(stack_t *stack, char *opcode, int line, FILE *stream);
 char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *);
 FILE *openMonty(char *);
 void swap(stack_t **stack, char *opcode, int line, FILE *stream);
+void sub(stack_t **stack, char *opcode, int line, FILE *stream);
 int pop(stack_t **stack, char *opcode, int line, FILE *stream);
 void testvalue(stack_t **stack, char *val, char *op, int line, FILE *str);
 void free_stack_opcode(stack_t **stack, char *opcode, int line, FILE *);
