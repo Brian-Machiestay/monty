@@ -37,6 +37,8 @@ char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 		divide(stack, *opcode, line, stream);
 	else if (strcmp(newprog[0], "mul") == 0)
 		multiply(stack, *opcode, line, stream);
+	else if (strcmp(newprog[0], "mod") == 0)
+		modulo(stack, *opcode, line, stream);
 	else
 		unknown_inst_exit(stack, *opcode, line, stream);
 	return (*opcode);
