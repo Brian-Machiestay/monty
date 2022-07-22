@@ -50,6 +50,7 @@ void read_monty_lines(FILE *str, stack_t **);
 void pint(stack_t *stack, char *opcode, int line, FILE *stream);
 char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *);
 FILE *openMonty(char *);
+void multiply(stack_t **stack, char *opcode, int line, FILE *stream);
 void swap(stack_t **stack, char *opcode, int line, FILE *stream);
 void sub(stack_t **stack, char *opcode, int line, FILE *stream);
 int pop(stack_t **stack, char *opcode, int line, FILE *stream);

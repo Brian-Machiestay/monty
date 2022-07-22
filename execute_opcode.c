@@ -35,6 +35,8 @@ char *execute_opcode(stack_t **stack, char **opcode, int line, FILE *stream)
 		sub(stack, *opcode, line, stream);
 	else if (strcmp(newprog[0], "div") == 0)
 		divide(stack, *opcode, line, stream);
+	else if (strcmp(newprog[0], "mul") == 0)
+		multiply(stack, *opcode, line, stream);
 	else
 		unknown_inst_exit(stack, *opcode, line, stream);
 	return (*opcode);
