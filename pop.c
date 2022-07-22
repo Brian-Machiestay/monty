@@ -6,10 +6,12 @@
  * @opcode: the opcode
  * @line: the line number
  * @stream: the monty file stream
+ * Return: the pop'd value
  */
-void pop(stack_t **stack, char *opcode, int line, FILE *stream)
+int pop(stack_t **stack, char *opcode, int line, FILE *stream)
 {
 	stack_t *myh = *stack;
+	int n;
 
 	if (*stack == NULL)
 	{
@@ -19,8 +21,10 @@ void pop(stack_t **stack, char *opcode, int line, FILE *stream)
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		exit(EXIT_FAILURE);
 	}
+	n = myh->n;
 	*stack = (*stack)->next;
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
 	free(myh);
+	return (n);
 }
